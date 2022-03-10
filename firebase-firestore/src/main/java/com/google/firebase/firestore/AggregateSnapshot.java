@@ -14,15 +14,129 @@
 
 package com.google.firebase.firestore;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.google.firebase.Timestamp;
+import com.google.firebase.firestore.DocumentSnapshot.ServerTimestampBehavior;
+import java.util.Date;
+import java.util.Map;
 import javax.annotation.Nonnull;
 
 public class AggregateSnapshot {
 
   AggregateSnapshot() {}
 
+  @NonNull
+  public Map<AggregateField, Object> getAggregations() {
+    throw new RuntimeException("not implemented");
+  }
+
+  @NonNull
+  public Map<AggregateField, Object> getAggregations(
+      @NonNull ServerTimestampBehavior serverTimestampBehavior) {
+    throw new RuntimeException("not implemented");
+  }
+
+  public boolean contains(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Object get(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Object get(
+      @NonNull AggregateField field, @NonNull ServerTimestampBehavior serverTimestampBehavior) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public <T> T get(@NonNull AggregateField field, @NonNull Class<T> valueType) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public <T> T get(
+      @NonNull AggregateField field,
+      @NonNull Class<T> valueType,
+      @NonNull ServerTimestampBehavior serverTimestampBehavior) {
+    throw new RuntimeException("not implemented");
+  }
+
+  // Overload get() specifically for COUNT since it has a well-defined type (i.e. long).
   @Nullable
   public Long get(@Nonnull AggregateField.CountAggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  // Overload get() specifically for SUM since it has a well-defined type (i.e. double).
+  @Nullable
+  public Double get(@Nonnull AggregateField.SumAggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  // Overload get() specifically for AVERAGE since it has a well-defined type (i.e. double).
+  @Nullable
+  public Double get(@Nonnull AggregateField.AverageAggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Boolean getBoolean(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Double getDouble(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public String getString(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Long getLong(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Date getDate(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Date getDate(
+      @NonNull AggregateField field, @NonNull ServerTimestampBehavior serverTimestampBehavior) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Timestamp getTimestamp(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Timestamp getTimestamp(
+      @NonNull AggregateField field, @NonNull ServerTimestampBehavior serverTimestampBehavior) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public Blob getBlob(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public GeoPoint getGeoPoint(@NonNull AggregateField field) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @Nullable
+  public DocumentReference getDocumentReference(@NonNull AggregateField field) {
     throw new RuntimeException("not implemented");
   }
 

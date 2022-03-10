@@ -1224,13 +1224,16 @@ public class Query {
   }
 
   @NonNull
-  public AggregateQuery aggregate(@NonNull AggregateField field) {
+  public AggregateQuery aggregate(
+      @NonNull AggregateField field, @NonNull AggregateField... fields) {
     throw new RuntimeException("not implemented");
   }
 
   @NonNull
   public AggregateQuery aggregate(
-      @NonNull AggregateExecutionMode mode, @NonNull AggregateField field) {
+      @NonNull AggregateExecutionMode mode,
+      @NonNull AggregateField field,
+      @NonNull AggregateField... fields) {
     throw new RuntimeException("not implemented");
   }
 
@@ -1245,6 +1248,30 @@ public class Query {
   @NonNull
   public AggregateQuery count(@NonNull AggregateExecutionMode mode) {
     return aggregate(mode, AggregateField.count());
+  }
+
+  @NonNull
+  public GroupByQuery groupBy(@NonNull String field1, @NonNull String... fields) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @NonNull
+  public GroupByQuery groupBy(@NonNull FieldPath field1, @NonNull FieldPath... fields) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @NonNull
+  public GroupByQuery groupBy(
+      @NonNull AggregateExecutionMode mode, @NonNull String field1, @NonNull String... fields) {
+    throw new RuntimeException("not implemented");
+  }
+
+  @NonNull
+  public GroupByQuery groupBy(
+      @NonNull AggregateExecutionMode mode,
+      @NonNull FieldPath field1,
+      @NonNull FieldPath... fields) {
+    throw new RuntimeException("not implemented");
   }
 
   @Override

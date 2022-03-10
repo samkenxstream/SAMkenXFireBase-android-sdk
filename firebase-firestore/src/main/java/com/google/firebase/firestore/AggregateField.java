@@ -27,6 +27,66 @@ public abstract class AggregateField {
     return new CountAggregateField();
   }
 
+  @NonNull
+  public static MinAggregateField min(@NonNull String field) {
+    return min(FieldPath.fromDotSeparatedPath(field));
+  }
+
+  @NonNull
+  public static MinAggregateField min(@NonNull FieldPath field) {
+    return new MinAggregateField(field);
+  }
+
+  @NonNull
+  public static MaxAggregateField max(@NonNull String field) {
+    return max(FieldPath.fromDotSeparatedPath(field));
+  }
+
+  @NonNull
+  public static MaxAggregateField max(@NonNull FieldPath field) {
+    return new MaxAggregateField(field);
+  }
+
+  @NonNull
+  public static AverageAggregateField average(@NonNull String field) {
+    return average(FieldPath.fromDotSeparatedPath(field));
+  }
+
+  @NonNull
+  public static AverageAggregateField average(@NonNull FieldPath field) {
+    return new AverageAggregateField(field);
+  }
+
+  @NonNull
+  public static SumAggregateField sum(@NonNull String field) {
+    return sum(FieldPath.fromDotSeparatedPath(field));
+  }
+
+  @NonNull
+  public static SumAggregateField sum(@NonNull FieldPath field) {
+    return new SumAggregateField(field);
+  }
+
+  @NonNull
+  public static FirstAggregateField first(@NonNull String field) {
+    return first(FieldPath.fromDotSeparatedPath(field));
+  }
+
+  @NonNull
+  public static FirstAggregateField first(@NonNull FieldPath field) {
+    return new FirstAggregateField(field);
+  }
+
+  @NonNull
+  public static LastAggregateField last(@NonNull String field) {
+    return last(FieldPath.fromDotSeparatedPath(field));
+  }
+
+  @NonNull
+  public static LastAggregateField last(@NonNull FieldPath field) {
+    return new LastAggregateField(field);
+  }
+
   @Override
   public abstract boolean equals(Object obj);
 
@@ -74,6 +134,168 @@ public abstract class AggregateField {
       } else {
         return "COUNT(upTo=" + upTo + ")";
       }
+    }
+  }
+
+  public static final class MinAggregateField extends AggregateField {
+
+    @NonNull private FieldPath field;
+
+    MinAggregateField(@NonNull FieldPath field) {
+      this.field = field;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (obj == null || obj.getClass() != this.getClass()) {
+        return false;
+      }
+      return field.equals(((MinAggregateField) obj).field);
+    }
+
+    @Override
+    public int hashCode() {
+      return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "MIN(" + field.toString() + ")";
+    }
+  }
+
+  public static final class MaxAggregateField extends AggregateField {
+
+    @NonNull private FieldPath field;
+
+    MaxAggregateField(@NonNull FieldPath field) {
+      this.field = field;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (obj == null || obj.getClass() != this.getClass()) {
+        return false;
+      }
+      return field.equals(((MaxAggregateField) obj).field);
+    }
+
+    @Override
+    public int hashCode() {
+      return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "MAX(" + field.toString() + ")";
+    }
+  }
+
+  public static final class AverageAggregateField extends AggregateField {
+
+    @NonNull private FieldPath field;
+
+    AverageAggregateField(@NonNull FieldPath field) {
+      this.field = field;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (obj == null || obj.getClass() != this.getClass()) {
+        return false;
+      }
+      return field.equals(((AverageAggregateField) obj).field);
+    }
+
+    @Override
+    public int hashCode() {
+      return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "AVERAGE(" + field.toString() + ")";
+    }
+  }
+
+  public static final class SumAggregateField extends AggregateField {
+
+    @NonNull private FieldPath field;
+
+    SumAggregateField(@NonNull FieldPath field) {
+      this.field = field;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (obj == null || obj.getClass() != this.getClass()) {
+        return false;
+      }
+      return field.equals(((SumAggregateField) obj).field);
+    }
+
+    @Override
+    public int hashCode() {
+      return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "SUM(" + field.toString() + ")";
+    }
+  }
+
+  public static final class FirstAggregateField extends AggregateField {
+
+    @NonNull private FieldPath field;
+
+    FirstAggregateField(@NonNull FieldPath field) {
+      this.field = field;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (obj == null || obj.getClass() != this.getClass()) {
+        return false;
+      }
+      return field.equals(((FirstAggregateField) obj).field);
+    }
+
+    @Override
+    public int hashCode() {
+      return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "FIRST(" + field.toString() + ")";
+    }
+  }
+
+  public static final class LastAggregateField extends AggregateField {
+
+    @NonNull private FieldPath field;
+
+    LastAggregateField(@NonNull FieldPath field) {
+      this.field = field;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+      if (obj == null || obj.getClass() != this.getClass()) {
+        return false;
+      }
+      return field.equals(((LastAggregateField) obj).field);
+    }
+
+    @Override
+    public int hashCode() {
+      return toString().hashCode();
+    }
+
+    @Override
+    public String toString() {
+      return "LAST(" + field.toString() + ")";
     }
   }
 }
